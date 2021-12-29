@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "type": "single",
+      "title": "General",
+      "toggles": [
+        {
+          "label": "Case management",
+          "id": "caseManagement"
+        },
+
+        {
+          "label": "Map timeline",
+          "id": "mapTimeline"
+        },
+        {
+          "label": "Views and briefings",
+          "id": "viewsAndBriefings"
+        },
+        {
+          "label": "Notifications",
+          "id": "notifications"
+        },
+        {
+          "label": "Mass comminucations",
+          "id": "massCommunications"
+        },
+
+        {
+          "label": "Traffic cameras",
+          "id": "trafficCameras"
+        }
+      ]
+    },
+    {
+      "type": "bordered",
+      "title": "Settings",
+      "toggles": [
+        {
+          "label": "Audit log",
+          "id": "audit"
+        },
+        {
+          "label": "Users",
+          "id": "users",
+          "childToggles": [
+            {
+              "label": "Users add",
+              "id": "users.add"
+            },
+            {
+              "label": "Users delete",
+              "id": "users.delete"
+            },
+            {
+              "label": "Users edit",
+              "id": "users.edit"
+            },
+            {
+              "label": "Max users",
+              "id": "users.max",
+              "hasDropdown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "grouped",
+      "title": "Alerts",
+      "toggles": [
+        {
+          "label": "Alert manager",
+          "id": "alertManager"
+        },
+        {
+          "label": "Alert rules",
+          "id": "alertRules",
+          "hasDropdown": true
+        }
+      ]
+    }
+  ]
+}
