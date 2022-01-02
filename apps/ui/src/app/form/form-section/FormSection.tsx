@@ -9,7 +9,6 @@ export interface FormSectionProps extends Section {}
 
 function FormSection({ title, type, toggles }: FormSectionProps) {
   const gridProps = getGridPropsForType(type);
-  console.log(Math.ceil(toggles.length / 2));
   return (
     <GridItem colSpan={Math.ceil(toggles.length / 2)}>
       <h2>{title}</h2>

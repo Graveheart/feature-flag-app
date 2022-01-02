@@ -19,6 +19,7 @@ const Template: Story<TogglePanelProps> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = { label: 'Toggle me', id: 'toggle' };
+
 export const WithChildren = Template.bind({});
 WithChildren.args = {
   label: 'Toggle me',
@@ -27,4 +28,10 @@ WithChildren.args = {
     { label: 'Child 1', id: 'toggle.child1' },
     { label: 'Child 2', id: 'toggle.child2' },
   ],
+};
+export const WithDropdown = Template.bind({});
+WithDropdown.args = {
+  label: 'Select value',
+  id: 'dropdown',
+  hasDropdown: true,
 };

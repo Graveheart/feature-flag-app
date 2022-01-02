@@ -10,8 +10,8 @@ function FormContainer(props: FormContainerProps) {
   return (
     <FormProvider {...methods}>
       <Grid templateColumns="repeat(3, 1fr)" gap={4}>
-        {props.sections.map((section) => (
-          <FormSection {...section}></FormSection>
+        {props.sections.map((section, index) => (
+          <FormSection key={index} {...section}></FormSection>
         ))}
       </Grid>
     </FormProvider>

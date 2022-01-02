@@ -1,19 +1,15 @@
 import {
   Box,
-  Collapse,
   CSSObject,
-  Divider,
   Flex,
-  Heading,
   Icon,
-  Select,
   Switch,
   Text,
   Tooltip,
 } from '@chakra-ui/react';
-import { useState } from 'react';
-import { Controller, useController, useFormContext } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { Toggle } from '../form.types';
+import ToggleDropdown from './ToggleDropdown';
 
 /* eslint-disable-next-line */
 export interface TogglePanelProps extends Toggle {}
@@ -26,14 +22,15 @@ export default function TogglePanel({
 }: TogglePanelProps) {
   const { control } = useFormContext();
   const {
-    field: { onChange, name, value },
+    field: { onChange, value },
   } = useController({
     name: id,
     control,
-    rules: { required: true },
     defaultValue: true,
+    shouldUnregister: true,
   });
   const hasChildToggles = !!childToggles.length;
+  const showDropdown = hasDropdown && !!value;
   const isExpanded = hasChildToggles && !!value;
   const iconStyles: CSSObject = {
     transform: isExpanded ? 'rotate(-180deg)' : undefined,
@@ -69,15 +66,8 @@ export default function TogglePanel({
           display={{ base: 'none', sm: 'flex' }}
           alignItems="center"
         >
-          {hasDropdown && (
-            <Box width="100px" mr={3}>
-              <Select
-                bg="black"
-                borderColor="black"
-                color="white"
-                placeholder="10"
-              />
-            </Box>
+          {showDropdown && (
+            <ToggleDropdown value={value} onChange={onChange} id={id} />
           )}
           <Switch size="md" onChange={onChange} isChecked={value} />
           {!!childToggles.length && (
@@ -100,13 +90,12 @@ export default function TogglePanel({
       </Flex>
 
       {hasChildToggles && (
-        <Collapse in={isExpanded}>
-          <Flex direction="column" mx="5">
-            {childToggles.map((input) => (
+        <Flex direction="column" mx="5">
+          {isExpanded &&
+            childToggles.map((input) => (
               <TogglePanel {...input} key={input.id} />
             ))}
-          </Flex>
-        </Collapse>
+        </Flex>
       )}
     </Flex>
   );
