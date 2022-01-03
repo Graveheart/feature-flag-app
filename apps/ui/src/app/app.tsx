@@ -21,13 +21,13 @@ const StyledApp = styled.div`
 
 const config = {
   initialColorMode: 'dark',
-  useSystemColorMode: true,
+  useSystemColorMode: true
 };
 
 export const theme = extendTheme({ config });
 
 export function App({
-  children = <FormContainer {...manageFeatureFormConfig} />,
+  children = <FormContainer {...manageFeatureFormConfig} />
 }) {
   return (
     <StyledApp>
