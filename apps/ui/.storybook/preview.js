@@ -1,4 +1,4 @@
-import { ColorModeProvider, CSSReset, ThemeProvider } from '@chakra-ui/react';
+import { ColorModeProvider, CSSReset } from '@chakra-ui/react';
 import App from '../src/app/app';
 import '../src/assets/styles/index.css';
 import theme from '../src/app/app'
@@ -9,7 +9,7 @@ export const decorators = [
     <App>
         <ColorModeProvider options={{
             initialColorMode: 'dark',
-            useSystsemColorMode: true
+            useSystemColorMode: true
         }}>
             <CSSReset />
             <Story />

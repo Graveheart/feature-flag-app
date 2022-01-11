@@ -5,7 +5,7 @@ import {
   Icon,
   Switch,
   Text,
-  Tooltip,
+  Tooltip
 } from '@chakra-ui/react';
 import { useController, useFormContext } from 'react-hook-form';
 import { Toggle } from '../form.types';
@@ -18,16 +18,16 @@ export default function TogglePanel({
   id,
   label,
   hasDropdown,
-  childToggles = [],
+  childToggles = []
 }: TogglePanelProps) {
   const { control } = useFormContext();
   const {
-    field: { onChange, value },
+    field: { onChange, value }
   } = useController({
     name: id,
     control,
     defaultValue: true,
-    shouldUnregister: true,
+    shouldUnregister: true
   });
   const hasChildToggles = !!childToggles.length;
   const showDropdown = hasDropdown && !!value;
@@ -35,7 +35,7 @@ export default function TogglePanel({
   const iconStyles: CSSObject = {
     transform: isExpanded ? 'rotate(-180deg)' : undefined,
     transition: 'transform 0.2s',
-    transformOrigin: 'center',
+    transformOrigin: 'center'
   };
   return (
     <Flex
@@ -45,7 +45,7 @@ export default function TogglePanel({
       bg="gray.900"
       direction="column"
     >
-      <Flex p={5}>
+      <Flex p={5} height="72px">
         <Flex align="center">
           <Box
             height="32px"

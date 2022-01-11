@@ -1,10 +1,19 @@
 import { render } from '@testing-library/react';
+import { composeStories } from '@storybook/testing-react';
+import * as stories from './TogglePanel.stories';
 
-import TogglePanel from './TogglePanel';
+const { TogglePanelPrimary } = composeStories(stories);
 
 describe('TogglePanel', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TogglePanel />);
+    const { baseElement } = render(<TogglePanelPrimary />);
+    expect(baseElement).toBeTruthy();
+  });
+});
+
+describe('TogglePanel', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<TogglePanelPrimary />);
     expect(baseElement).toBeTruthy();
   });
 });
